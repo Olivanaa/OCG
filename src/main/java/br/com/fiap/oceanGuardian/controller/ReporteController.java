@@ -71,7 +71,7 @@ public class ReporteController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do reporte com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Reporte> show(@PathVariable Long id) {
+    public EntityModel<Reporte> show(@PathVariable Integer id) {
         var reporte = repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("reporte não encontrada"));
 
@@ -85,7 +85,7 @@ public class ReporteController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Reporte> update(@PathVariable Long id, @RequestBody Reporte reporte) {
+    public EntityModel<Reporte> update(@PathVariable Integer id, @RequestBody Reporte reporte) {
 
         repository.findById(id)
                 .orElseThrow(
@@ -104,7 +104,7 @@ public class ReporteController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do reporte com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    public ResponseEntity<Object> destroy(@PathVariable Integer id) {
         repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("reporte não encontrada"));
 

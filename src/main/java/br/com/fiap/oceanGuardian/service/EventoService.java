@@ -30,23 +30,23 @@ public class EventoService {
         return repository.findAll();
     }
 
-    public Evento buscarPorId(Long id) {
+    public Evento buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Evento não encontrado"));
     }
 
-    public void deletar(Long id) {
+    public void deletar(Integer id) {
         verificar(id);
         repository.deleteById(id);
     }
 
-    public Evento atualizar(Long id, Evento projeto) {
+    public Evento atualizar(Integer id, Evento projeto) {
         verificar(id);
         projeto.setId(id);
         return repository.save(projeto);
     }
 
-    private void verificar(Long id) {
+    private void verificar(Integer id) {
         repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Não existe evento com o id informado."));
     }

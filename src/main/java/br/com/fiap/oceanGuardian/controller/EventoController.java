@@ -71,7 +71,7 @@ public class EventoController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do evento com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Evento> show(@PathVariable Long id) {
+    public EntityModel<Evento> show(@PathVariable Integer id) {
         var evento = repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("evento não encontrada"));
 
@@ -85,7 +85,7 @@ public class EventoController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Evento> update(@PathVariable Long id, @RequestBody Evento evento) {
+    public EntityModel<Evento> update(@PathVariable Integer id, @RequestBody Evento evento) {
 
         repository.findById(id)
                 .orElseThrow(
@@ -104,7 +104,7 @@ public class EventoController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do evento com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    public ResponseEntity<Object> destroy(@PathVariable Integer id) {
         repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("usuario não encontrada"));
 

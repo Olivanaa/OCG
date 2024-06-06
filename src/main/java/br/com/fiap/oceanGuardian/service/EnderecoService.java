@@ -33,23 +33,23 @@ public class EnderecoService {
         return repository.findAll();
     }
 
-    public Endereco buscarPorId(Long id) {
+    public Endereco buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Endereço não encontrado"));
     }
 
-    public void deletar(Long id) {
+    public void deletar(Integer id) {
         verificar(id);
         repository.deleteById(id);
     }
 
-    public Endereco atualizar(Long id, Endereco endereco) {
+    public Endereco atualizar(Integer id, Endereco endereco) {
         verificar(id);
         endereco.setId(id);
         return repository.save(endereco);
     }
 
-    private void verificar(Long id) {
+    private void verificar(Integer id) {
         repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Não existe endereço com o id informado."));
     }

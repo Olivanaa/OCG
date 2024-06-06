@@ -91,7 +91,7 @@ public class BlogController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do post com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Blog> show(@PathVariable Long id) {
+    public EntityModel<Blog> show(@PathVariable Integer id) {
         var blog = repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("post não encontrado"));
         return blog.toEntityModel();
@@ -106,7 +106,7 @@ public class BlogController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do post com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    public ResponseEntity<Object> destroy(@PathVariable Integer id) {
         repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("post não encontrado"));
         repository.deleteById(id);

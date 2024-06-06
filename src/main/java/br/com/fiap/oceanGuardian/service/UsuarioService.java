@@ -33,23 +33,23 @@ public class UsuarioService {
         return repository.findAll();
     }
 
-    public Usuario buscarPorId(Long id) {
+    public Usuario buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Usuario não encontrado"));
     }
 
-    public void deletar(Long id) {
+    public void deletar(Integer id) {
         verificar(id);
         repository.deleteById(id);
     }
 
-    public Usuario atualizar(Long id, Usuario usuario) {
+    public Usuario atualizar(Integer id, Usuario usuario) {
         verificar(id);
         usuario.setId(id);
         return repository.save(usuario);
     }
 
-    public Long authenticate(String email, String senha){
+    public Integer authenticate(String email, String senha){
         Usuario usuario = repository.findByEmail(email);
         if(usuario != null && senha.equals(usuario.getSenha())){
             return usuario.getId();
@@ -57,7 +57,7 @@ public class UsuarioService {
         return null;
     }
 
-    private void verificar(Long id) {
+    private void verificar(Integer id) {
         repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Não existe usuario com o id informado."));
     }

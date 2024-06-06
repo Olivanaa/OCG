@@ -35,7 +35,7 @@ import lombok.NoArgsConstructor;
 public class Reporte extends EntityModel<Reporte> {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @NotBlank(message = "A descrição não pode estar em branco.")
     @Size(min = 5, max = 500, message = "A descrição deve ter entre 5 e 500 caracteres.")

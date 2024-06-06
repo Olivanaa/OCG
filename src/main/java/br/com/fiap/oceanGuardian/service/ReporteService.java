@@ -31,23 +31,23 @@ public class ReporteService {
         return repository.findAll();
     }
 
-    public Reporte buscarPorId(Long id) {
+    public Reporte buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Reporte não encontrado"));
     }
 
-    public void deletar(Long id) {
+    public void deletar(Integer id) {
         verificar(id);
         repository.deleteById(id);
     }
 
-    public Reporte atualizar(Long id, Reporte reporte) {
+    public Reporte atualizar(Integer id, Reporte reporte) {
         verificar(id);
         reporte.setId(id);
         return repository.save(reporte);
     }
 
-    private void verificar(Long id) {
+    private void verificar(Integer id) {
         repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Não existe reporte com o id informado."));
     }

@@ -83,7 +83,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do usuario com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Usuario> show(@PathVariable Long id) {
+    public EntityModel<Usuario> show(@PathVariable Integer id) {
         log.info("buscando usuario com id {}", id);
 
         var usuario = repository.findById(id).orElseThrow(
@@ -99,7 +99,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Usuario> update(@PathVariable Long id, @RequestBody Usuario usuario) {
+    public EntityModel<Usuario> update(@PathVariable Integer id, @RequestBody Usuario usuario) {
 
         repository.findById(id)
                 .orElseThrow(
@@ -118,7 +118,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do usuario com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    public ResponseEntity<Object> destroy(@PathVariable Integer id) {
         repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("usuario não encontrado"));
 
@@ -134,8 +134,8 @@ public class UsuarioController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do usuario com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public ResponseEntity<Long> login(@RequestParam("email") String email, @RequestParam("senha") String senha) {
-        Long usuarioId = service.authenticate(email, senha);
+    public ResponseEntity<Integer> login(@RequestParam("email") String email, @RequestParam("senha") String senha) {
+        Integer usuarioId = service.authenticate(email, senha);
 
         if (usuarioId != null) {
             return ResponseEntity.ok().body(usuarioId);

@@ -33,7 +33,7 @@ public class Evento extends EntityModel<Evento> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @NotBlank(message = "O nome não pode estar em branco.")
     @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 50 caracteres.")

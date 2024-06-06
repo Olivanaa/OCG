@@ -34,23 +34,23 @@ public class BlogService {
         return repository.findAll(pageable);
     }
 
-    public Blog buscarPorId(Long id) {
+    public Blog buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Post não encontrado"));
     }
 
-    public void deletar(Long id) {
+    public void deletar(Integer id) {
         verificar(id);
         repository.deleteById(id);
     }
 
-    public Blog atualizar(Long id, Blog blog) {
+    public Blog atualizar(Integer id, Blog blog) {
         verificar(id);
         blog.setId(id);
         return repository.save(blog);
     }
 
-    private void verificar(Long id) {
+    private void verificar(Integer id) {
         repository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Não existe post com o id informado."));
     } 

@@ -43,7 +43,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         enderecoRepository.saveAll(
                 List.of(
                         Endereco.builder()
-                                .id(1L)
+                                .id(1)
                                 .logradouro("Rua B")
                                 .numero("456")
                                 .complemento("Apto 2")
@@ -51,10 +51,10 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 .cidade("Cidade B")
                                 .estado("Estado B")
                                 .cep("87654321")
-                                .userId(1L)
+                                .userId(1)
                                 .build(),
                         Endereco.builder()
-                                .id(2L)
+                                .id(2)
                                 .logradouro("Rua A")
                                 .numero("123")
                                 .complemento("Apto 1")
@@ -62,33 +62,33 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 .cidade("Cidade A")
                                 .estado("Estado A")
                                 .cep("12345678")
-                                .userId(2L)
+                                .userId(2)
                                 .build(),
                         Endereco.builder()
-                                .id(3L)
+                                .id(3)
                                 .logradouro("Rua C")
                                 .numero("789")
                                 .bairro("Bairro C")
                                 .cidade("Cidade C")
                                 .estado("Estado C")
                                 .cep("87654321")
-                                .userId(3L)
+                                .userId(3)
                                 .build(),
                         Endereco.builder()
-                                .id(4L)
+                                .id(4)
                                 .logradouro("Rua D")
                                 .numero("789")
                                 .bairro("Bairro D")
                                 .cidade("Cidade D")
                                 .estado("Estado D")
                                 .cep("87654321")
-                                .userId(4L)
+                                .userId(4)
                                 .build()));
 
         usuarioRepository.saveAll(
                 List.of(
                         Usuario.builder()
-                                .id(1L)
+                                .id(1)
                                 .nome("Usuário A")
                                 .telefone("1234567890")
                                 .email("usuarioa@example.com")
@@ -96,7 +96,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 .tipo("VOLUNTARIO")
                                 .build(),
                         Usuario.builder()
-                                .id(2L)
+                                .id(2)
                                 .nome("Usuário B")
                                 .telefone("0987654321")
                                 .email("usuariob@example.com")
@@ -104,7 +104,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 .tipo("VOLUNTARIO")
                                 .build(),
                         Usuario.builder()
-                                .id(3L)
+                                .id(3)
                                 .nome("ONG B")
                                 .telefone("0987654321")
                                 .email("ongb@example.com")
@@ -112,7 +112,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 .tipo("ONG")
                                 .build(),
                         Usuario.builder()
-                                .id(4L)
+                                .id(4)
                                 .nome("ONG A")
                                 .telefone("1234567890")
                                 .email("onga@example.com")
@@ -123,50 +123,50 @@ public class DatabaseSeeder implements CommandLineRunner {
         reporteRepository.saveAll(
                 List.of(
                         Reporte.builder()
-                                .id(1L)
+                                .id(1)
                                 .descricao("Descrição do Reporte A")
                                 .tipo("OLEO")
                                 .nivel("CRITICO")
                                 .latitude(-23.5505)
                                 .longitude(-46.6333)
                                 .data(LocalDate.of(2024, 5, 1))
-                                .usuario(usuarioRepository.findById(1L).get())
+                                .usuario(usuarioRepository.findById(1).get())
                                 .build(),
                         Reporte.builder()
-                                .id(2L).descricao("Descrição do Reporte B")
+                                .id(2).descricao("Descrição do Reporte B")
                                 .tipo("LIXO")
                                 .nivel("ALTO")
                                 .latitude(-22.9068)
                                 .longitude(-43.1729)
                                 .data(LocalDate.of(2024, 5, 2))
-                                .usuario(usuarioRepository.findById(2L).get())
+                                .usuario(usuarioRepository.findById(2).get())
                                 .build()));
 
         eventoRepository.saveAll(
                 List.of(
                         Evento.builder()
-                                .id(1L)
+                                .id(1)
                                 .nome("Projeto A")
                                 .descricao("Descrição do Projeto A")
                                 .localizacao("Localização A")
                                 .data(LocalDate.of(2024, 6, 1))
                                 .doacoes("Doações A")
-                                .autor(usuarioRepository.findById(3L).get())
+                                .autor(usuarioRepository.findById(3).get())
                                 .build(),
                         Evento.builder()
-                                .id(2L)
+                                .id(2)
                                 .nome("Projeto B")
                                 .descricao("Descrição do Projeto B")
                                 .localizacao("Localização B")
                                 .data(LocalDate.of(2024, 7, 1))
                                 .doacoes("Doações B")
-                                .autor(usuarioRepository.findById(4L).get())
+                                .autor(usuarioRepository.findById(4).get())
                                 .build()));
 
         blogRepository.saveAll(
                 List.of(
                         Blog.builder()
-                                .id(1L)
+                                .id(1)
                                 .data(LocalDate.of(2024, 5, 1))
                                 .artigo("A poluição plástica nos oceanos é uma crise ambiental global que ameaça a saúde dos ecossistemas marinhos e, por extensão, a saúde humana. Todos os anos, milhões de toneladas de plástico entram nos oceanos, resultando em efeitos devastadores sobre a vida marinha e o ambiente costeiro. Este artigo examina as causas, impactos e possíveis soluções para essa crescente preocupação ambiental.\r\n"
                                         + //
@@ -206,10 +206,10 @@ public class DatabaseSeeder implements CommandLineRunner {
                                         "Conclusão\r\n" + //
                                         "A poluição plástica nos oceanos é uma crise urgente que exige ação imediata. Governos, empresas e indivíduos devem trabalhar juntos para reduzir a quantidade de plástico descartado, promover a reciclagem e desenvolver novas soluções para limpar nossos oceanos. Somente através de um esforço conjunto podemos proteger a saúde dos ecossistemas marinhos e garantir um futuro sustentável para o nosso planeta.")
                                 .titulo("A Poluição Plástica nos Oceanos: Um Desafio Global Urgente")
-                                .autor(usuarioRepository.findById(3L).get())
+                                .autor(usuarioRepository.findById(3).get())
                                 .build(),
                         Blog.builder()
-                                .id(2L)
+                                .id(2)
                                 .data(LocalDate.of(2024, 5, 2))
                                 .artigo("Os oceanos são essenciais para a vida na Terra, regulando o clima, fornecendo alimento e sustentando uma biodiversidade rica. No entanto, a poluição química está colocando esses ecossistemas vitais em risco. Produtos químicos tóxicos provenientes de diversas fontes estão se acumulando nos oceanos, com efeitos devastadores sobre a vida marinha e potencialmente perigosos para a saúde humana. Este artigo explora as principais fontes de poluentes químicos nos oceanos, seus impactos e as medidas necessárias para mitigar essa ameaça.\r\n"
                                         + //
@@ -256,7 +256,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                                         "Conclusão\r\n" + //
                                         "A poluição química nos oceanos é uma ameaça séria que exige uma resposta global coordenada. A proteção dos ecossistemas marinhos depende de ações firmes para regular o despejo de poluentes, melhorar o tratamento de águas residuais, desenvolver tecnologias de limpeza e aumentar a conscientização pública. Somente através de um esforço coletivo podemos garantir a saúde dos oceanos e a biodiversidade que eles sustentam, protegendo assim a saúde do nosso planeta e das gerações futuras.")
                                 .titulo("O Impacto dos Poluentes Químicos nos Oceanos e Suas Consequências para a Vida Marinha")
-                                .autor(usuarioRepository.findById(4L).get())
+                                .autor(usuarioRepository.findById(4).get())
                                 .build()));
 
     }

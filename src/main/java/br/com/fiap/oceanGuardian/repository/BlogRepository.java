@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import br.com.fiap.oceanGuardian.model.Blog;
 
-public interface BlogRepository extends JpaRepository<Blog, Long> {
+public interface BlogRepository extends JpaRepository<Blog, Integer> {
 
     @Query("SELECT m FROM Blog m WHERE MONTH(m.data) = :mes")
     Page<Blog> findByMes(Integer mes, Pageable pageable);

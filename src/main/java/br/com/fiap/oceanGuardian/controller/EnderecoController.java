@@ -77,7 +77,7 @@ public class EnderecoController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do endereço com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Endereco>  show(@PathVariable Long id) {
+    public EntityModel<Endereco>  show(@PathVariable Integer id) {
         var endereco = repository.findById(id).orElseThrow(
             () -> new IllegalArgumentException("endereço não encontrada")
         );
@@ -95,7 +95,7 @@ public class EnderecoController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public EntityModel<Endereco> update(@PathVariable Long id, @RequestBody Endereco endereco) {
+    public EntityModel<Endereco> update(@PathVariable Integer id, @RequestBody Endereco endereco) {
         repository.findById(id)
                 .orElseThrow(
                 () -> new ResponseStatusException(NOT_FOUND, "Não existe endereço com o id informado."));
@@ -116,7 +116,7 @@ public class EnderecoController {
             @ApiResponse(responseCode = "404", description = "Não existe dados do endereço com o id informado.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    public ResponseEntity<Object> destroy(@PathVariable Integer id) {
         repository.findById(id).orElseThrow( 
             () -> new IllegalArgumentException("endereço não encontrado")
         );

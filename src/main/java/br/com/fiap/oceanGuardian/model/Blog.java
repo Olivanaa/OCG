@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 public class Blog extends EntityModel<Blog>{
     
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull(message = "A data não pode ser nula.")

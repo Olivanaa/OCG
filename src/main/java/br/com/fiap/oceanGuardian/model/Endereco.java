@@ -28,7 +28,7 @@ public class Endereco extends EntityModel<Endereco> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @NotBlank(message = "O logradouro não pode estar em branco.")
     private String logradouro;
@@ -51,7 +51,7 @@ public class Endereco extends EntityModel<Endereco> {
     @Size(min = 8, max = 8, message = "O CEP deve ter 8 caracteres.")
     private String cep;
 
-    private Long userId;
+    private Integer userId;
 
     public EntityModel<Endereco> toEntityModel(){
         return EntityModel.of(

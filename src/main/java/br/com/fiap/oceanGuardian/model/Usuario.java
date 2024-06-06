@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 public class Usuario extends EntityModel<Usuario> {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @NotBlank(message = "O nome não pode estar em branco.")
     @Size(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres.")
