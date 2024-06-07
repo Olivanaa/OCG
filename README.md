@@ -7,5 +7,5 @@ Ele conecta cidadãos, ONGs, empresas e governos em uma plataforma colaborativa 
 
 ---
 ## Swagger
-Documentação swagger disponível em (https://ocg-production.up.railway.app)/docs
+Documentação swagger disponível em https://ocg-production.up.railway.app/docs
 ---
